@@ -1,0 +1,13 @@
+Workflow for the Application:
+When a user adds an equipment from the equipment page then that equipment will be an outdoor equipment 
+but when a user adds an equipment from the building page then that equipment will be an indoor equipment
+so if an outdoor equipment is added then its state will be "en cours" until another user comes in and adds a meter for that equipment
+once that happens and the form page for the meter is filled out completely finishing all 3 steps then the equipment and the meter will become "en service"
+but if the steps aren't completed then the equipment will remain "en cours" and the meter will also be "en cours" until the steps are completed
+else if an indoor equipment is added then its state will be "en service" directly without needing a meter to be added
+because when a building is added the building must get a meter associated with it before the equipment can be added to that building
+also the steps for adding a meter for a building are not the same as adding a meter for an outdoor equipment
+also when finishing all the steps for a building meter then the meter will automatically get associated with that building and become "en service",and a building can have only 1 meter and multiple equipment and 
+an outdoor equipment can have a meter and can share a meter with a max of 1 outdoor equipment
+also a meter is created from step 1 for equipment and building alike, an it will get updated for each step like the N°Compteur at first it'll be like "0000000" then in step 2 it will take the input data of the user 
+that they put in step 2.
