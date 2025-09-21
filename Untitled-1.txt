@@ -11,3 +11,11 @@ also when finishing all the steps for a building meter then the meter will autom
 an outdoor equipment can have a meter and can share a meter with a max of 1 outdoor equipment
 also a meter is created from step 1 for equipment and building alike, an it will get updated for each step like the N°Compteur at first it'll be like "0000000" then in step 2 it will take the input data of the user 
 that they put in step 2.
+
+
+
+this is how the relationship must be for the app:
+building <---- meter(indoor)(max of 1) <--- indoor equipment(unlimited)
+
+
+meter(outdoor) <--- outdoor equipment(max of 2)

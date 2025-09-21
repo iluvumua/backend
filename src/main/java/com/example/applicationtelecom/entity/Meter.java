@@ -1,7 +1,7 @@
 package com.example.applicationtelecom.entity;
 
 import jakarta.persistence.*;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Meter {
@@ -9,22 +9,23 @@ public class Meter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String numeroCompteur = "0000000";
-    private String state = "en cours"; // en cours, en service
-
-    // Step data
+    private String numeroCompteur;
+    private String policeNumber;
+    private String description;
+    private String typeTension;
+    private String status;
+    private String dateMiseEnService;
+    private String lastUpdate;
     private String step1Data;
     private String step2Data;
     private String step3Data;
 
-    @OneToOne
+    @ManyToOne
     private Building building;
 
     @OneToMany(mappedBy = "meter")
-    private List<Equipment> equipments;
-
-    @OneToMany(mappedBy = "meter")
-    private List<Bill> bills;
+    @JsonIgnore
+    private java.util.List<Equipment> equipments;
 
     // getters and setters
     public Long getId() { return id; }
@@ -33,8 +34,23 @@ public class Meter {
     public String getNumeroCompteur() { return numeroCompteur; }
     public void setNumeroCompteur(String numeroCompteur) { this.numeroCompteur = numeroCompteur; }
 
-    public String getState() { return state; }
-    public void setState(String state) { this.state = state; }
+    public String getPoliceNumber() { return policeNumber; }
+    public void setPoliceNumber(String policeNumber) { this.policeNumber = policeNumber; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public String getTypeTension() { return typeTension; }
+    public void setTypeTension(String typeTension) { this.typeTension = typeTension; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
+    public String getDateMiseEnService() { return dateMiseEnService; }
+    public void setDateMiseEnService(String dateMiseEnService) { this.dateMiseEnService = dateMiseEnService; }
+
+    public String getLastUpdate() { return lastUpdate; }
+    public void setLastUpdate(String lastUpdate) { this.lastUpdate = lastUpdate; }
 
     public String getStep1Data() { return step1Data; }
     public void setStep1Data(String step1Data) { this.step1Data = step1Data; }
@@ -48,9 +64,6 @@ public class Meter {
     public Building getBuilding() { return building; }
     public void setBuilding(Building building) { this.building = building; }
 
-    public List<Equipment> getEquipments() { return equipments; }
-    public void setEquipments(List<Equipment> equipments) { this.equipments = equipments; }
-
-    public List<Bill> getBills() { return bills; }
-    public void setBills(List<Bill> bills) { this.bills = bills; }
+    public java.util.List<Equipment> getEquipments() { return equipments; }
+    public void setEquipments(java.util.List<Equipment> equipments) { this.equipments = equipments; }
 }

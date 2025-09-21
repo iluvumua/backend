@@ -16,8 +16,14 @@ public class Building {
     private String commune;
     private String localisation;
     @ElementCollection
+    @CollectionTable(name = "building_nature")
     private List<String> nature = new ArrayList<>();
     private String propriete;
+
+    // Coordinates
+    private Double coordX;
+    private Double coordY;
+    private String googleMapsUrl;
 
     @OneToOne
     private Meter meter;
@@ -49,6 +55,15 @@ public class Building {
 
     public String getPropriete() { return propriete; }
     public void setPropriete(String propriete) { this.propriete = propriete; }
+
+    public Double getCoordX() { return coordX; }
+    public void setCoordX(Double coordX) { this.coordX = coordX; }
+
+    public Double getCoordY() { return coordY; }
+    public void setCoordY(Double coordY) { this.coordY = coordY; }
+
+    public String getGoogleMapsUrl() { return googleMapsUrl; }
+    public void setGoogleMapsUrl(String googleMapsUrl) { this.googleMapsUrl = googleMapsUrl; }
 
     public Meter getMeter() { return meter; }
     public void setMeter(Meter meter) { this.meter = meter; }
